@@ -38,7 +38,8 @@ answersFormElement.addEventListener('submit', function (event) {
     event.preventDefault()
    const formControlElement =document.querySelectorAll('form-control')
    console.log( formControlElement)
-
+   const formControlElementValue = formControlElement.values
+   console.log( formControlElementValue)
    let solved = 0
     
    for(let i  = 0 ; i < formControlElement.length ; i ++  ){
