@@ -26,20 +26,20 @@ console.log(num1ElemntValue)
 
 
 // numeri randomici //
-let number1 = randomNumber()
-let number2 = randomNumber()
-let number3 = randomNumber()
-let number4 = randomNumber()
-let number5 = randomNumber()
-
+let randomNumbers = []
+for (let i = 0; i < 5; i++) {
+    let numcasual = randomNumber()
+    randomNumbers.push(numcasual)
+}
+console.log(randomNumbers)
 
 
 numbersListElement.innerHTML = `
-<li>${number1}</li>
-<li>${number2}</li>
-<li>${number3}</li>
-<li>${number4}</li>
-<li>${number5}</li>`
+<li>${randomNumbers[0]}</li>
+<li>${randomNumbers[1]}</li>
+<li>${randomNumbers[2]}</li>
+<li>${randomNumbers[3]}</li>
+<li>${randomNumbers[4]}</li>`
 
 
 
@@ -53,22 +53,23 @@ answersFormElement.addEventListener('submit', function (event) {
     for (let i = 0; i < formControlElement.length; i++) {
         let control = formControlElement[i].value
         control = parseInt(control)
-        if (control === number1 || control === number2 || control === number3 || control === number4 || control === number5)
-            solved++
-
-
+        if (randomNumbers.includes(control)){
+             solved++
+        }
     }
-    if (solved === 0) {
-        messageElement.innerHTML = `Mi spiace non hai indovinato nessun numero`
-    } else if (solved === 1) {
-        messageElement.innerHTML = `complimenti hai indovinato ${solved} numero`
-        messageElement.className = 'text-success text-center'
-    } else if( solved >1){
 
-        messageElement.innerHTML = `complimenti hai indovinato ${solved} numeri`
-        messageElement.className = 'text-success text-center'
-    }
-})
+    
+        if (solved === 0) {
+            messageElement.innerHTML = `Mi spiace non hai indovinato nessun numero`
+        } else if (solved === 1) {
+            messageElement.innerHTML = `complimenti hai indovinato ${solved} numero`
+            messageElement.className = 'text-success text-center'
+        } else if (solved > 1) {
+
+            messageElement.innerHTML = `complimenti hai indovinato ${solved} numeri`
+            messageElement.className = 'text-success text-center'
+        }
+    })
 
 
 
