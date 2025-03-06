@@ -16,6 +16,15 @@ console.log(istructionsElement)
 const messageElement = document.getElementById('message')
 console.log(messageElement)
 
+
+//numeri del form
+const num1Element= document.getElementById('num1')
+console.log(num1Element)
+const num1ElemntValue = num1Element.value
+console.log(num1ElemntValue)
+
+
+
 // numeri randomici //
 let number1 = randomNumber()
 let number2 = randomNumber()
@@ -36,16 +45,18 @@ numbersListElement.innerHTML = `
 
 answersFormElement.addEventListener('submit', function (event) {
     event.preventDefault()
-   const formControlElement =document.querySelectorAll('form-control')
+   const formControlElement = document.querySelectorAll('.form-control')
    console.log( formControlElement)
-   const formControlElementValue = formControlElement.values
-   console.log( formControlElementValue)
+   
    let solved = 0
     
    for(let i  = 0 ; i < formControlElement.length ; i ++  ){
-     const control = formControlElement[i]
+     let control = formControlElement[i].value
+     control = parseInt(control)
      if (control === number1 || control === number2 || control === number3|| control === number4|| control === number5)   
         solved ++
+    
+   
     }
 
 
@@ -62,7 +73,7 @@ answersFormElement.addEventListener('submit', function (event) {
 
 
 //contatore//
-let count = 10
+let count = 1
 let timer = setInterval(start,1000 )
 
 function start() {
