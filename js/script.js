@@ -27,19 +27,16 @@ console.log(num1ElemntValue)
 
 // numeri randomici //
 let randomNumbers = []
+let innerUl =''
 for (let i = 0; i < 5; i++) {
-    let numcasual = randomNumber()
+    const numcasual = randomNumber()
     randomNumbers.push(numcasual)
+    innerUl += `<li>${numcasual}</li>`
 }
 console.log(randomNumbers)
 
 
-numbersListElement.innerHTML = `
-<li>${randomNumbers[0]}</li>
-<li>${randomNumbers[1]}</li>
-<li>${randomNumbers[2]}</li>
-<li>${randomNumbers[3]}</li>
-<li>${randomNumbers[4]}</li>`
+numbersListElement.innerHTML = innerUl
 
 
 
@@ -50,15 +47,19 @@ answersFormElement.addEventListener('submit', function (event) {
 
     let solved = 0
 
+
+
     for (let i = 0; i < formControlElement.length; i++) {
         let control = formControlElement[i].value
         control = parseInt(control)
+       
+
         if (randomNumbers.includes(control)){
              solved++
         }
-    }
 
-    
+    }
+        
         if (solved === 0) {
             messageElement.innerHTML = `Mi spiace non hai indovinato nessun numero`
         } else if (solved === 1) {
@@ -87,6 +88,7 @@ function start() {
     countdownElement.innerHTML = count
     count--
     if (count === 0) {
+        istructionsElement.innerHTML = "inserisci tutti i numeri che ricordi, non importa l'ordine "
         countdownElement.className = 'd-none'
         numbersListElement.className = 'd-none'
         answersFormElement.className = 'd-block'
