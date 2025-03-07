@@ -81,7 +81,7 @@ answersFormElement.addEventListener('submit', function (event) {
 
 
 //contatore//
-let count = 10
+let count = 30
 let timer = setInterval(start, 1000)
 
 function start() {
